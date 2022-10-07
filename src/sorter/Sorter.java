@@ -1,10 +1,11 @@
 package sorter;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
 
 public class Sorter {
+
+    ArrayList<Integer> sortedList;
 
     boolean sortiert = false;
     int methode = 0;
@@ -12,7 +13,7 @@ public class Sorter {
 
     public Sorter(int methode) {
         if (methode == 1 || methode == 2 || methode == 3) {
-            System.out.println("methode " + methode + "ausgewählt");
+            System.out.println("methode " + methode + "ausgewählt\n");
             this.methode = methode;
 
         } else {
@@ -21,8 +22,44 @@ public class Sorter {
         }
     }
 
-    public void sort(ArrayList<Integer> unsortedList) {
+    public ArrayList<Integer> sorted(ArrayList<Integer> unsortedList) {
 
+        if (methode == 1) {     // Bubble Sort
+
+            //---------- BUBBLE SORT ----------//
+            sortiert = false;
+            int temp;
+
+            while (!sortiert) {
+
+            }
+
+
+            //---------------------------------//
+
+            return sortedList;
+
+        } else if (methode == 2) {      // Insertion Sort
+
+            //-------- INSERTION SORT ----------//
+
+            //----------------------------------//
+
+            return sortedList;
+
+        } else if (methode == 3) {      // Selection Sort
+
+            //------- SELECTION SORT ----------//
+
+            //---------------------------------//
+
+            return sortedList;
+
+        } else {
+            System.out.println("\n\n--Error: Sorting Zuweisung--\n\n");
+            return null;
+        }
     }
+
 
 }

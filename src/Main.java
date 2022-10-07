@@ -14,7 +14,7 @@ public class Main {
             int verfahren = getVerfahren();
             Sorter sorter = new Sorter(verfahren);
 
-            sorter.sort(generator.getUnsortedList());
+            sorter.sorted(generator.getUnsortedList());
 
         }
 
