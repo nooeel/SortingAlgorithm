@@ -29,6 +29,7 @@ public class Main {
         System.out.println("1. Bubble Sort");
         System.out.println("2. Insertion Sort");
         System.out.println("3. Selection Sort");
+        System.out.print("\n");
 
         return scanner.nextInt();
     }

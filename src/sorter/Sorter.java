@@ -28,9 +28,21 @@ public class Sorter {
 
             //---------- BUBBLE SORT ----------//
             sortiert = false;
-            int temp;
+            int smaller;
+            int bigger;
 
-            while (!sortiert) {
+            for (int i = 0; i < unsortedList.toArray().length && sortiert == false; i++) {
+                sortiert = true;
+
+                for (int y = 0; y < unsortedList.toArray().length; y++) {
+                    if (unsortedList.get(y) > unsortedList.get(y + 1)) {
+                        bigger = unsortedList.get(y);
+                        smaller = unsortedList.get(y + 1);
+                        unsortedList.add(y, smaller);
+                        unsortedList.add(y + 1, bigger);
+                        sortiert = false;
+                    }
+                }
 
             }
 
