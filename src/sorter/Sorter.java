@@ -28,29 +28,18 @@ public class Sorter {
 
             //---------- BUBBLE SORT ----------//
             sortiert = false;
-            int smaller;
-            int bigger;
 
-            for (int i = 0; i < unsortedList.toArray().length && sortiert == false; i++) {
-                sortiert = true;
 
-                for (int y = 0; y < unsortedList.toArray().length; y++) {
-                    if (unsortedList.get(y) > unsortedList.get(y + 1)) {
-                        bigger = unsortedList.get(y);
-                        smaller = unsortedList.get(y + 1);
-                        unsortedList.add(y, smaller);
-                        unsortedList.add(y + 1, bigger);
-                        sortiert = false;
-                    }
-                }
 
-            }
+
 
 
             //---------------------------------//
 
 
+
             return sortedList;
+
 
         } else if (methode == 2) {      // Insertion Sort
 

@@ -39,11 +39,12 @@ public class Main {
 
     public static void printResult(Sorter sorter, int anzahlInts) {
 
+        System.out.println("test");
 
         ArrayList<Integer> sortedInts = sorter.getSortedList();
 
         for (int i = 0; i < anzahlInts; i++) {
-            System.out.print();
+            System.out.print(sortedInts.get(i));
         }
     }
 }
