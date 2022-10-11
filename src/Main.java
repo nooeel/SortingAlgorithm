@@ -1,5 +1,4 @@
 import generator.Generator;
-import sorter.Sorter;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,40 +10,50 @@ public class Main {
 
         int anzahlInts = 100;
 
-        boolean sortiert = false;
         Generator generator = new Generator(anzahlInts);
 
         int verfahren = getVerfahren();
-        Sorter sorter = new Sorter(verfahren);
 
-        while (sortiert == false) {          // endstatement
-            sorter.sorted(generator.getUnsortedList());
-            sortiert = sorter.isSortiert();
-        }
 
-        printResult(sorter, anzahlInts);
     }
 
     public static int getVerfahren() {  // Verfahrensabfrage
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welches Verfahren willst du verwenden?");
-        System.out.println("1. Bubble Sort");
+        System.out.println("1. Selection Sort");
         System.out.println("2. Insertion Sort");
-        System.out.println("3. Selection Sort");
+        System.out.println("3. Bubble Sort");
         System.out.print("\n");
 
         return scanner.nextInt();
     }
 
-    public static void printResult(Sorter sorter, int anzahlInts) {
+    public ArrayList<Integer> zuSortieren(ArrayList<Integer> sortingList, int verfahren) {
+        if (verfahren == 0) {
+            System.out.println("Du hast keine gültige Zahl ausgewählt");
 
-        System.out.println("test");
+        } else if (verfahren == 1) {        //Selection Sort
+            int tmp;
 
-        ArrayList<Integer> sortedInts = sorter.getSortedList();
+            for (int i = 0; i < sortingList.size(); i++) {
 
-        for (int i = 0; i < anzahlInts; i++) {
-            System.out.print(sortedInts.get(i));
+                for (int j = 0; (j < sortingList.size()-1); j++) {
+
+                    if (sortingList.get(j) > sortingList.get(j+1)) {
+                        tmp = sortingList.get(j);
+                        sortingList.set(j, sortingList.get(j+1));
+                        sortingList.set(j+1, tmp);
+                    }
+
+                }
+            }
+        } else if (verfahren == 2) {        // Insertion Sort
+
+
         }
+
+        return sortingList;
     }
+
 }
