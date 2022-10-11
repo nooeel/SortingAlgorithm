@@ -49,6 +49,7 @@ public class Sorter {
 
             //---------------------------------//
 
+
             return sortedList;
 
         } else if (methode == 2) {      // Insertion Sort
@@ -73,5 +74,11 @@ public class Sorter {
         }
     }
 
+    public ArrayList<Integer> getSortedList() {
+        return sortedList;
+    }
 
+    public boolean isSortiert() {
+        return sortiert;
+    }
 }

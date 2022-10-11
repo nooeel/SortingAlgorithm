@@ -1,25 +1,28 @@
 import generator.Generator;
 import sorter.Sorter;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+
+
     public static void main(String[] args) {
 
+        int anzahlInts = 100;
+
         boolean sortiert = false;
-        Generator generator = new Generator(100);
+        Generator generator = new Generator(anzahlInts);
+
+        int verfahren = getVerfahren();
+        Sorter sorter = new Sorter(verfahren);
 
         while (sortiert == false) {          // endstatement
-
-            int verfahren = getVerfahren();
-            Sorter sorter = new Sorter(verfahren);
-
             sorter.sorted(generator.getUnsortedList());
-
+            sortiert = sorter.isSortiert();
         }
 
-
-
+        printResult(sorter, anzahlInts);
     }
 
     public static int getVerfahren() {  // Verfahrensabfrage
@@ -34,4 +37,13 @@ public class Main {
         return scanner.nextInt();
     }
 
+    public static void printResult(Sorter sorter, int anzahlInts) {
+
+
+        ArrayList<Integer> sortedInts = sorter.getSortedList();
+
+        for (int i = 0; i < anzahlInts; i++) {
+            System.out.print();
+        }
+    }
 }
