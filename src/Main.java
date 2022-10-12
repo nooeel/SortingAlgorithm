@@ -8,12 +8,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int anzahlInts = 100;
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Wie viele Ints soll die Liste haben?");
+        int anzahlInts = scanner.nextInt();
 
 
         Generator generator = new Generator(anzahlInts);
 
-        int verfahren = getVerfahren();
+        int verfahren = getVerfahren(scanner);
 
 
 
@@ -21,8 +25,8 @@ public class Main {
 
     }
 
-    public static int getVerfahren() {  // Verfahrensabfrage
-        Scanner scanner = new Scanner(System.in);
+    public static int getVerfahren(Scanner scanner) {  // Verfahrensabfrage
+
 
         System.out.println("Welches Verfahren willst du verwenden?");
         System.out.println("1. Selection Sort");
@@ -33,7 +37,7 @@ public class Main {
         return scanner.nextInt();
     }
 
-    public static ArrayList<Integer> sortierenOutput(ArrayList<Integer> sortingList, int verfahren) {
+    public static ArrayList<Integer> sortierterOutput(ArrayList<Integer> sortingList, int verfahren) {
 
         if (verfahren == 0) {
             System.out.println("Du hast keine gültige Zahl ausgewählt");
@@ -41,24 +45,30 @@ public class Main {
         } else if (verfahren == 1) {        //Selection Sort
             int tmp;
 
-            for (int i = 0; i < sortingList.size(); i++) {
+            for (int i = 0; i < sortingList.size(); i++) {              // Durchgehen bis jedes am richtigen Platz
 
-                for (int j = 0; (j < sortingList.size()-1); j++) {
+                for (int j = 0; (j < sortingList.size()-1); j++) {      // Für einen Durchlauf suchen nach:
 
-                    if (sortingList.get(j) > sortingList.get(j+1)) {
+                    if (sortingList.get(j) > sortingList.get(j+1)) {    // ist j kleiner als j+1
                         tmp = sortingList.get(j);
-                        sortingList.set(j, sortingList.get(j+1));
+                        sortingList.set(j, sortingList.get(j+1));       // wenn ja Tausche die Beiden
                         sortingList.set(j+1, tmp);
                     }
 
                 }
             }
+
+
+
         } else if (verfahren == 2) {        // Insertion Sort
 
+            for (int i = 0; i < sortingList.size(); i++) {
+
+            }
 
         }
 
-        return sortingList;
+        return sortingList;         // Gebe sortierte Liste zurück
     }
 
     public static void generateOutput(Generator generator, int verfahren) {
@@ -81,9 +91,15 @@ public class Main {
         System.out.println("_______________________________________\n");
 
 
-        for (int i = 0; i < sortierenOutput(generator.getUnsortedList(), verfahren).size(); i++) {
-            System.out.print(generator.getUnsortedList().get(i) + ", ");
-            if (i%10 == 9) {
+        for (int i = 0; i < sortierterOutput(generator.getUnsortedList(), verfahren).size(); i++) {
+
+            System.out.print(generator.getUnsortedList().get(i));
+
+            if (i != sortierterOutput(generator.getUnsortedList(), verfahren).size() - 1)  {    // wenn nicht das letzte
+                System.out.print(", ");
+            }
+
+            if (i%20 == 19) {
                 System.out.println();
             }
         }
@@ -92,7 +108,7 @@ public class Main {
 
         System.out.println();
         System.out.print("Das Sortieren hat ");
-        System.out.print(timeEnded - timeBegin);
+        System.out.print((timeEnded - timeBegin) / 1_000_000_000);
         System.out.print(" Sekunden gedauert.");
     }
 
