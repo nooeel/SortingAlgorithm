@@ -21,7 +21,7 @@ public class Main {
 
 
 
-        generateOutput(generator, verfahren);
+        generateOutput(generator, verfahren, anzahlInts);
 
     }
 
@@ -106,7 +106,7 @@ public class Main {
         return sortingList;         // Gebe sortierte Liste zurück
     }
 
-    public static void generateOutput(Generator generator, int verfahren) {
+    public static void generateOutput(Generator generator, int verfahren, int size) {
 
         System.out.print("Starte sortieren...   Verwendetes Verfahren ist: ");
 
@@ -141,12 +141,16 @@ public class Main {
 
         double timeEnded = System.nanoTime();
 
+        double timeGebraucht = (timeEnded - timeBegin) / 1_000_000_000;
+
         System.out.println();
         System.out.print("Das Sortieren hat ");
-        System.out.print((timeEnded - timeBegin) / 1_000_000_000);
+        System.out.print(timeGebraucht);
         System.out.print(" Sekunden gedauert.");
 
         System.out.println();
+
+        //System.out.println("Das sind " + timeGebraucht/size + " pro Integer.");
     }
 
 }
