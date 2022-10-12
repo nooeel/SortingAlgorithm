@@ -49,7 +49,7 @@ public class Main {
 
                 for (int j = 0; (j < sortingList.size()-1); j++) {      // Für einen Durchlauf suchen nach:
 
-                    if (sortingList.get(j) > sortingList.get(j+1)) {    // ist j kleiner als j+1
+                    if (sortingList.get(j) > sortingList.get(j+1)) {    // ist j größer als j+1
                         tmp = sortingList.get(j);
                         sortingList.set(j, sortingList.get(j+1));       // wenn ja Tausche die Beiden
                         sortingList.set(j+1, tmp);
@@ -80,13 +80,17 @@ public class Main {
 
         } else if (verfahren == 3) {        // Bubble Sort
 
+            int tmp;
+
             for (int i = 0; i < sortingList.size(); i++) {
                 int n = sortingList.size();
 
                 while (n > 1) {
                     for (int j = 0; j < n-2; j++) {
-                        if (sortingList.get(j) > sortingList.get(j+1)) {
-                            //vertausche A[i] mit A[i+1]
+                        if (sortingList.get(j) > sortingList.get(j+1)) {    // ist j größer als j+1
+                            tmp = sortingList.get(j);
+                            sortingList.set(j, sortingList.get(j+1));       // wenn ja Tausche die Beiden
+                            sortingList.set(j+1, tmp);
                         }
                     }
 
