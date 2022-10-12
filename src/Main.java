@@ -78,7 +78,26 @@ public class Main {
                 sortingList.set(j, tmp);
             }
 
+        } else if (verfahren == 3) {        // Bubble Sort
+
+            for (int i = 0; i < sortingList.size(); i++) {
+                int n = sortingList.size();
+
+                while (n > 1) {
+                    for (int j = 0; j < n-2; j++) {
+                        if (sortingList.get(j) > sortingList.get(j+1)) {
+                            //vertausche A[i] mit A[i+1]
+                        }
+                    }
+
+                    n = n-1;
+
+                }
+
+            }
+
         }
+
 
         return sortingList;         // Gebe sortierte Liste zurück
     }
