@@ -62,8 +62,20 @@ public class Main {
 
         } else if (verfahren == 2) {        // Insertion Sort
 
-            for (int i = 0; i < sortingList.size(); i++) {
+            int tmp;
+            int i;
+            int j;
 
+            for (i = 0; i < sortingList.size(); i++) {
+                tmp = sortingList.get(i);
+                j = i;
+
+                while ((j > 0) && (sortingList.get(j - 1) > tmp)) {
+                    sortingList.set(j, sortingList.get(j-1));
+                    j = j-1;
+                }
+
+                sortingList.set(j, tmp);
             }
 
         }
@@ -110,6 +122,8 @@ public class Main {
         System.out.print("Das Sortieren hat ");
         System.out.print((timeEnded - timeBegin) / 1_000_000_000);
         System.out.print(" Sekunden gedauert.");
+
+        System.out.println();
     }
 
 }
